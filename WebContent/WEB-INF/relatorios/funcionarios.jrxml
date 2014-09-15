@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionarios" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="078b7f17-6e9d-4cf8-828e-da8d356ec04a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="zebra">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() %2 == 0)]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="ativa" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[ativa]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[cpf]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="foto" class="java.lang.Object">
+		<fieldDescription><![CDATA[foto]]></fieldDescription>
+	</field>
+	<field name="grupo" class="com.reis.beans.Grupo">
+		<fieldDescription><![CDATA[grupo]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="imagem" class="org.primefaces.model.StreamedContent">
+		<fieldDescription><![CDATA[imagem]]></fieldDescription>
+	</field>
+	<field name="nascimento" class="java.util.Date">
+		<fieldDescription><![CDATA[nascimento]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="nomeUsuario" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeUsuario]]></fieldDescription>
+	</field>
+	<field name="salario" class="java.lang.Double">
+		<fieldDescription><![CDATA[salario]]></fieldDescription>
+	</field>
+	<field name="senha" class="java.lang.String">
+		<fieldDescription><![CDATA[senha]]></fieldDescription>
+	</field>
+	<field name="setor" class="com.reis.beans.Setor">
+		<fieldDescription><![CDATA[setor]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="aba8a5ce-937f-41df-9268-8babe1155b49"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Relatorio de Funcionarios]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="22" backcolor="#00CC66" uuid="094e966b-ce18-4236-845e-eb81758f92ea"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="19" y="0" width="62" height="20" uuid="0cff4f0c-3718-405a-bb64-fda8deccf9a9"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="0" width="119" height="20" uuid="56c91bab-b0d7-439f-8330-63674b0beb4f"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="171" height="20" uuid="5d461956-ef03-49b4-9f65-96103a3ba2de"/>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="0" width="100" height="20" uuid="9d7bd041-5a04-4b8e-a7cf-1054cca941ce"/>
+				<text><![CDATA[Nascimento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<rectangle>
+				<reportElement style="zebra" x="0" y="0" width="555" height="40" uuid="b171bb32-b000-4ff9-a7ac-956777f2861e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="19" y="0" width="62" height="20" uuid="4666e08b-571f-4d4a-ae30-9568f6f1de2c"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="200" y="0" width="171" height="20" uuid="05ed33b6-2492-4a47-8040-3f238bc40cc3"/>
+				<textElement>
+					<font fontName="Courier"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}.toString()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="371" y="0" width="100" height="20" uuid="80061cc5-29a0-4437-b25a-95a53cc596bc"/>
+				<textFieldExpression><![CDATA[$F{nascimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="0" width="119" height="20" uuid="94fd46a7-fdaf-40da-8c34-210be08e2649"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="471" y="0" width="84" height="40" uuid="54f1e273-283d-404b-ba05-fd9588be0106"/>
+				<imageExpression><![CDATA[new ByteArrayInputStream((byte[]) $F{foto})]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="46" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="81" y="26" width="100" height="20" uuid="9887ada4-bfb1-44f9-91b8-957bcd270f24"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="26" width="80" height="20" uuid="3758b02e-9a85-4148-87e2-e6f58d38c0e6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="451" y="26" width="40" height="20" uuid="67b2e17c-abdb-42ee-9b2e-c825aaa0f56b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

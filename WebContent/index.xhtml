@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head><title>Gerenciamento de Projetos JSF</title></h:head> 
+<body> 
+<div align="center">
+	Seja bem vindo ao Sistema de Gerenciamento de Projetos <br/>
+</div>
+	<h:form>
+		<h:panelGroup rendered="#{controleLogin.usuarioLogado != null}">
+			<h:panelGrid columns="1">
+				<h:outputLabel value="Usuario Logado: #{controleLogin.usuarioLogado.nome}"/>
+				<h:commandLink value="Grupos" action="#{controleGrupo.listar()}"/>
+				<h:commandLink value="Funcionario" action="#{controleFuncionario.listar()}"/>
+				<h:commandLink value="Projetos" action="#{controleProjeto.listar()}"/>
+				<h:commandLink value="Setores" action="#{controleSetor.listar()}"/>
+				<h:commandLink value="Sair" action="#{controleLogin.efetuarLogout()}"/>
+		</h:panelGrid>
+	</h:panelGroup>
+<div align="center">
+	<h:panelGroup rendered="#{controleLogin.usuarioLogado == null}">
+		<h:commandLink action="#{controleLogin.paginaLogin()}" value="Efetuar Login"></h:commandLink>
+	</h:panelGroup>
+</div>		
+	</h:form>
+
+</body> 
+</html>
